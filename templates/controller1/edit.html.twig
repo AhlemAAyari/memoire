@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Patient{% endblock %}
+
+{% block body %}
+ {{ form_start(formArticle) }}
+  {{ form_widget(formArticle) }}
+ {{ form_end(formArticle) }}
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome{% endblock %}
+
+
+{% block body %}
+
+<section class='articles'> {% for article in articles %}
+ <article> <h2>{{article.fullname}} </h2> <div class="metadata">Last time edited
+  {{article.createdAt | date("m/d/Y")}} at {{article.createdAt | date("h/i")}}
+  </div> <div class="content"> Urgency:
+  {% if article.urgency==1 %}
+  Yes<br>
+  {% else %}
+  No<br>
+  {% endif %}
+   {{article.disease | raw }}
+   <a href="{{ path('blog_show' , {id: article.id}) }}" class="btn btn-primary">Details</a> 
+<a href="{{ path('blog_edit' , {id: article.id}) }}" class="btn btn-success">Edit</a></div> </article> {% endfor %} </section>
+{% endblock %}
